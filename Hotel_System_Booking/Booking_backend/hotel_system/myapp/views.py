@@ -1,12 +1,7 @@
-from datetime import datetime
 
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 
-# Create your views here.
-
-from django.shortcuts import render
-
-from myapp.models import Room, Guest, Reservation, History
+from myapp.models import Room, Reservation, History, Guest
 
 
 #========================= Home =========================
@@ -99,13 +94,6 @@ def create_reservation_post(request):
 
     guest = Guest.objects.get(id=guest_id)
     room = Room.objects.get(id=room_id)
-    # Calculate the number of nights
-    # nights = (check_out_date - check_in_date).days
-
-    # Calculate the total amount
-    # total_amount = room.price_per_night * nights
-
-
     reservation = Reservation.objects.create(
         guest=guest,
         room=room,
@@ -196,7 +184,7 @@ def create_guest_post(request):
 
 def get_history_list(request):
 
-    histories = History.objects.all().order_by('-action_date')
+    histories = History.objects.all().order_by('action_date')
     context = {
         'histories': histories
     }

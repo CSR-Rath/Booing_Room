@@ -1,0 +1,82 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="guests">
+        <h2>Guests</h2>
+
+        <table class="guests-table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for guest in guests %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ guest.first_name }}</td>
+                    <td>{{ guest.last_name }}</td>
+                    <td>{{ guest.phone }}</td>
+                    <td>{{ guest.email }}</td>
+                    <td>{{ guest.address }}</td>
+                    <td>
+                        <a href="#" class="btn btn-primary">View</a>
+                        <a href="#" class="btn btn-danger">Check Out</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="7">No transactions found.</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <style>
+        .guests {
+            padding: 20px;
+        }
+
+        .guests-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .guests-table th,
+        .guests-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .guests-table th {
+            background-color: #f2f2f2;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            color: #fff;
+        }
+    </style>
+{% endblock %}

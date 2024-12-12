@@ -106,15 +106,19 @@ class ApiManager {
             
             switch httpResponse.statusCode {
             case 200..<300:
-
-//                DebuggerRespose.shared.debuggerResult(urlRequest: request,
-//                                              data: data, error: false)
-                
+     
                 DebuggerRespose.shared.validateModel(model: T.self, data: data) { objectData in
                     res(objectData)
                     print("validateModel ==> Success")
                 }
 
+            case 400:
+                AlertMessage.shared.alertError(status: .code400)
+            case 404:
+                AlertMessage.shared.alertError(status: .code404)
+            case 500:
+                AlertMessage.shared.alertError(status: .code500)
+                
             default:
                 
                 AlertMessage.shared.alertError(message: "\(httpResponse.statusCode)", status: .none)
@@ -139,7 +143,8 @@ extension ApiManager{
         case NSURLErrorBadURL:
             AlertMessage.shared.alertError(status: .badURL)
         default:
-            AlertMessage.shared.alertError(message: "\(error.localizedDescription)", status: .requestError)
+            AlertMessage.shared.alertError(message: "\(error.localizedDescription)",
+                                           status: .requestError)
         }
     }
     

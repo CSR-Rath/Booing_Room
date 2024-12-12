@@ -20,29 +20,18 @@ class ReservationViewModel {
         }
     }
     
-    func deteleGeusts(id: Int, success: @escaping (_ response: ResponseModel) -> Void){
-        ApiManager.shared.apiConnection(url: endPoint+"/\(id)",
-                                        method: .DELETE)
-        {(res : ResponseModel) in
+    func reservationDetail(id: Int, method: HTTPMethod, success: @escaping (_ response: ResponseReservationModel) -> Void){
+        ApiManager.shared.apiConnection(url: endPoint+"/\(id)", method: method)
+        {(res : ResponseReservationModel) in
             success(res)
         }
     }
     
     // MARK: - Post - Put (Geusts)
-    func post_put_Reservation(param: Encodable, method: HTTPMethod, id: Int = 0, success: @escaping (_ response: ReservationPostModel) -> Void){
-        
-//        var endpoint = endPoint
-        
-//        if id != 0{
-//            endpoint = endPoint+"/\(id)"
-//        }
-        
-        ApiManager.shared.apiConnection(url: endPoint,
-                                        method: method,
-                                        //                                            param:  param
-                                        modelCodable: param
-        )
-        { (res: ReservationPostModel) in
+    func post_put_Reservation(param: Encodable, method: HTTPMethod, id: Int = 0, success: @escaping (_ response: ResponseReservationModel) -> Void){
+
+        ApiManager.shared.apiConnection(url: endPoint, method: method, modelCodable: param)
+        { (res: ResponseReservationModel) in
             
             success(res)
         }

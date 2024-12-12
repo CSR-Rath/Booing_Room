@@ -18,7 +18,7 @@ struct ReservationListModel: Codable{
 
 
 
-struct ReservationPostModel: Codable {
+struct ResponseReservationModel: Codable {
     var response: ResponseModel
     var results: ReservationModel
 }

@@ -1,0 +1,116 @@
+
+{##}
+{#{% extends 'index.html' %}#}
+{##}
+{#{% block content %}#}
+{#    <div class="dashboard">#}
+{#        <h2>Dashboard</h2>#}
+{##}
+{#        <div class="dashboard-stats">#}
+{#            <div class="stat-box">#}
+{#                <h3>Total Rooms</h3>#}
+{#                <p>{{ rooms.count }}</p>#}
+{#            </div>#}
+{#            <div class="stat-box">#}
+{#                <h3>Occupied Rooms</h3>#}
+{#                <p>{{ occupied_rooms }}</p>#}
+{#            </div>#}
+{#            <div class="stat-box">#}
+{#                <h3>Available Rooms</h3>#}
+{#                <p>{{ available_rooms }}</p>#}
+{#            </div>#}
+{#            <div class="stat-box">#}
+{#                <h3>Total Guests</h3>#}
+{#                <p>{{ guests.count }}</p>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#    <style>#}
+{#        .dashboard {#}
+{#            padding: 20px;#}
+{#        }#}
+{##}
+{#        .dashboard-stats {#}
+{#            display: grid;#}
+{#            grid-template-columns: repeat(4, 1fr);#}
+{#            grid-gap: 20px;#}
+{#        }#}
+{##}
+{#        .stat-box {#}
+{#            background-color: #f1f1f1;#}
+{#            padding: 20px;#}
+{#            text-align: center;#}
+{#        }#}
+{##}
+{#        .stat-box h3 {#}
+{#            margin-top: 0;#}
+{#        }#}
+{##}
+{#        .stat-box p {#}
+{#            font-size: 24px;#}
+{#            font-weight: bold;#}
+{#            margin-bottom: 0;#}
+{#        }#}
+{#    </style>#}
+{#{% endblock %}#}
+
+
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="dashboard">
+        <h2>Dashboard</h2>
+
+        <div class="dashboard-stats">
+            <div class="stat-box">
+                <h3>Total Rooms</h3>
+                <p>{{ rooms.count }}</p>
+            </div>
+            <div class="stat-box">
+                <h3>Occupied Rooms</h3>
+                <p>{{ occupied_rooms }}</p>
+            </div>
+            <div class="stat-box">
+                <h3>Available Rooms</h3>
+                <p>{{ available_rooms }}</p>
+            </div>
+            <div class="stat-box">
+                <h3>Total Guests</h3>
+                <p>{{ guests.count }}</p>
+            </div>
+            <div class="stat-box">
+                <h3>Booking Rooms</h3>
+                <p>{{ reservations.count }}</p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .dashboard {
+            padding: 20px;
+        }
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-gap: 20px;
+        }
+
+        .stat-box {
+            background-color: #f1f1f1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-box h3 {
+            margin-top: 0;
+        }
+
+        .stat-box p {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="content-header">
+    <h2>Transaction History</h2>
+    <a href="#" class="btn btn-primary">Create Transaction</a>
+</div>
+
+<div class="content-body">
+
+
+<table class="guests-table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Action Type</th>
+            <th>Guest</th>
+            <th>Room</th>
+            <th>Reservation</th>
+            <th>Service</th>
+            <th>Action Date</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for history in histories %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ history.action_type }}</td>
+            <td>{{ history.guest_id }}</td>
+            <td>{{ history.room_id }}</td>
+            <td>{{ history.reservation_id }}</td>
+            <td>{{ history.service_id }}</td>
+            <td>{{ history.action_date }}</td>
+            <td>{{ history.details }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{#    <table class="guests-table">#}
+{#        <thead>#}
+{#            <tr>#}
+{#                 <th>#</th>#}
+{#                <th>Transaction ID</th>#}
+{#                <th>Reservation</th>#}
+{#                <th>Transaction Type</th>#}
+{#                <th>Amount</th>#}
+{#                <th>Transaction Date</th>#}
+{#                <th>Description</th>#}
+{#                <th>Actions</th>#}
+{#            </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#            {% for transaction in transaction_history %}#}
+{#            <tr>#}
+{##}
+{#                <td> {{ forloop.counter }} </td>#}
+{#                <td>{{ transaction.action_type }}</td>#}
+{#                <td>{{ transaction.action_date }}</td>#}
+{#                <td>{{ transaction.g }}</td>#}
+{#                <td>{{ transaction.amount }}</td>#}
+{#                <td>{{ transaction.transaction_date }}</td>#}
+{#                <td>{{ transaction.description }}</td>#}
+{#                <td>#}
+{#                    <a href="{% url 'transaction_detail' transaction.transaction_id %}" class="btn btn-sm btn-primary">View</a>#}
+{#                    <a href="{% url 'transaction_update' transaction.transaction_id %}" class="btn btn-sm btn-secondary">Edit</a>#}
+{#                    <a href="{% url 'transaction_delete' transaction.transaction_id %}" class="btn btn-sm btn-danger">Delete</a>#}
+{#                </td>#}
+{#            </tr>#}
+{#            {% empty %}#}
+{#            <tr>#}
+{#                <td colspan="7">No transactions found.</td>#}
+{#            </tr>#}
+{#            {% endfor %}#}
+{#        </tbody>#}
+{#    </table>#}
+</div>
+
+<style>
+  .transaction-history {
+    padding: 20px;
+  }
+
+  .guests-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .guests-table th,
+  .guests-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .guests-table th {
+    background-color: #f2f2f2;
+  }
+
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .transaction-history-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .transaction-history-table th,
+  .transaction-history-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .transaction-history-table th {
+    background-color: #f2f2f2;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+</style>
+{% endblock %}

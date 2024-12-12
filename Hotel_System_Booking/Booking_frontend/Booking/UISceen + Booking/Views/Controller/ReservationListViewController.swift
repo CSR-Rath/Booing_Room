@@ -42,7 +42,7 @@ class ReservationListViewController: UIViewController, UITableViewDataSource, UI
     
     // MARK: - Setup UI
     private func setupUI() {
-        title = "Reservations"
+        title = "Histories"
         view.backgroundColor = .white
         tableView.register(ReservationCell.self, forCellReuseIdentifier: "ReservationCell")
         tableView.dataSource = self
@@ -76,18 +76,21 @@ class ReservationListViewController: UIViewController, UITableViewDataSource, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReservationCell", for: indexPath) as! ReservationCell
         let reservation = reservations[indexPath.row]
-        
-        // Configure the cell
-        cell.configure(with: reservation)
-        
+
+        cell.configure(with: reservation)  // Configure the cell
         return cell
     }
     
     // MARK: - UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Handle the selection of a reservation
+        
+        Loading.shared.showLoading()
         tableView.deselectRow(at: indexPath, animated: true)
-//        let reservation = reservations[indexPath.row]
+        let data = reservations[indexPath.row]
+        
+        let vc = TransactionDetailController()
+        vc.reservation = data
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
 }

@@ -11,6 +11,7 @@
 		FA494BA72C69EBD70086D346 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA494BA62C69EBD70086D346 /* Assets.xcassets */; };
 		FA494BAA2C69EBD70086D346 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA494BA82C69EBD70086D346 /* LaunchScreen.storyboard */; };
 		FA7FF8E82CDC722B00C824BD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA7FF8EA2CDC722B00C824BD /* Localizable.strings */; };
+		FA8755EF2D0AD4FD0033BC4B /* TransactionDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8755EE2D0AD4FD0033BC4B /* TransactionDetailController.swift */; };
 		FAD97BF12D09505C0001D9E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA494B9D2C69EB9C0086D346 /* AppDelegate.swift */; };
 		FAD97BF22D09505C0001D9E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA494B9F2C69EB9C0086D346 /* SceneDelegate.swift */; };
 		FAD97BF32D09505C0001D9E8 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8D7D762CDBC71900B45826 /* AppConfiguration.swift */; };
@@ -105,6 +106,7 @@
 		FA7FF8E92CDC722B00C824BD /* km */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = km; path = km.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA7FF8EB2CDC722D00C824BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA7FF8EC2CDC729700C824BD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FA8755EE2D0AD4FD0033BC4B /* TransactionDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailController.swift; sourceTree = "<group>"; };
 		FA87CD862C799FFB00349364 /* UITableView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + Extension.swift"; sourceTree = "<group>"; };
 		FA87CD882C79A00900349364 /* UICollectionView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView + Extension.swift"; sourceTree = "<group>"; };
 		FA87CD8B2C79A01A00349364 /* UITableViewCell + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell + Extension.swift"; sourceTree = "<group>"; };
@@ -267,9 +269,9 @@
 		FA494BBA2C6A08C40086D346 /* UISceen + Booking */ = {
 			isa = PBXGroup;
 			children = (
+				FAA3DF1F2CFF05D900AD6DA0 /* Models */,
 				FAA3DF212CFF05E800AD6DA0 /* ViewModels */,
 				FAA3DF202CFF05E200AD6DA0 /* Views */,
-				FAA3DF1F2CFF05D900AD6DA0 /* Models */,
 			);
 			path = "UISceen + Booking";
 			sourceTree = "<group>";
@@ -320,6 +322,7 @@
 				FA739CD12D003DCD002100B5 /* ReservationController.swift */,
 				FA739CD52D003FDC002100B5 /* ReservationListViewController.swift */,
 				FA739CD92D0049CA002100B5 /* RoomListViewController.swift */,
+				FA8755EE2D0AD4FD0033BC4B /* TransactionDetailController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				FAD97C0B2D09505D0001D9E8 /* Int + Extension.swift in Sources */,
 				FAD97C0C2D09505D0001D9E8 /* Float + Extension.swift in Sources */,
 				FAD97C0D2D09505D0001D9E8 /* String + Extension.swift in Sources */,
+				FA8755EF2D0AD4FD0033BC4B /* TransactionDetailController.swift in Sources */,
 				FAD97C0E2D09505D0001D9E8 /* Double + Extension.swift in Sources */,
 				FAD97C0F2D09505D0001D9E8 /* UIFont + Extension.swift in Sources */,
 				FAD97C102D09505D0001D9E8 /* UIView + Extension.swift in Sources */,

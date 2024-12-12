@@ -26,6 +26,18 @@ class GeustController: UIViewController {
     private let submitButton =  MainButton()
     private let messageLabel = UILabel()
     
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        firstNameTextField.resignFirstResponder()
+        lastNameTextField.resignFirstResponder()
+        phoneTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        addressTextField.resignFirstResponder()
+        
+    }
+    
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()

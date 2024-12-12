@@ -6,16 +6,19 @@ class Guest(models.Model):
     id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=100)
+    email = models.EmailField(max_length=100,unique=True)
     phone = models.CharField(max_length=15)
     address = models.CharField(max_length=100)
 
 class Room(models.Model):
     id = models.AutoField(primary_key=True)
-    room_number = models.IntegerField(unique=True)
-    room_type = models.CharField(max_length=50)
-    price_per_night = models.DecimalField(max_digits=10, decimal_places=2)
-    is_available = models.CharField(max_length=10, choices=[('available', 'available'), ('occupied', 'occupied')])
+    room_name = models.CharField(max_length=100)
+    room_type = models.CharField(max_length=100)
+    price_per_night = models.FloatField()
+    is_available = models.CharField(
+        max_length=10,
+        choices=[('available', 'Available'), ('occupied', 'Occupied')]
+    )
 
 class Reservation(models.Model):
     reservation_id = models.AutoField(primary_key=True)
@@ -23,8 +26,14 @@ class Reservation(models.Model):
     room = models.ForeignKey(Room, on_delete=models.SET_NULL, null=True)
     check_in_date = models.DateField()
     check_out_date = models.DateField()
-    total_amount = models.DecimalField(max_digits=10, decimal_places=2)
-    status = models.CharField(max_length=20, choices=[('pending', 'pending'), ('success', 'success'), ('failed', 'failed')], default='pending')
+    total_amount =  models.FloatField()
+    status = models.CharField(max_length=20,
+                              choices=[('pending', 'pending'),
+                                       ('success', 'success'),
+                                       ('failed', 'failed')],
+                              default='pending')
+
+    # create_at =
 
 class Employee(models.Model):
     employee_id = models.AutoField(primary_key=True)

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Login</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 400px;
+      max-width: 90%;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .forgot-password {
+      text-align: right;
+      margin-top: 10px;
+    }
+
+    .forgot-password a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }
+
+    .separator {
+      text-align: center;
+      margin: 20px 0;
+      color: #999;
+    }
+
+    .register-link {
+      text-align: center;
+    }
+
+    .register-link a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Event Login</h1>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" placeholder="Enter your username" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" placeholder="Enter your password" required>
+    </div>
+    <button type="submit" onclick="login()">Login</button>
+    <div class="forgot-password">
+      <a href="#" onclick="forgotPassword()">Forgot password?</a>
+    </div>
+    <div class="separator">or</div>
+    <div class="register-link">
+      <a href="/register/">Register a new account</a>
+    </div>
+  </div>
+
+  <script>
+ function login() {
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  // Perform login logic here
+  // You can add AJAX or fetch requests to send the login data to the server
+  console.log('Logging in with:', username, password);
+
+  // Check if the login is successful
+  // This is just an example, you'll need to handle the actual login logic
+  if (username === 'admin' && password === 'admin') {
+    // Redirect to the success page or dashboard
+    window.location.href = '/';
+  } else {
+    // Display an error message or handle the failed login scenario
+    alert('Invalid username or password. Please try again.');
+  }
+}
+
+    function forgotPassword() {
+      // Add logic to handle the "Forgot password?" functionality
+      console.log('Forgot password functionality');
+    }
+  </script>
+</body>
+</html>

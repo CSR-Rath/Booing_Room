@@ -14,6 +14,11 @@ struct RoomListModel: Codable{
     var results : [RoomModel]
 }
 
+struct ResponseRoomModel: Codable{
+    var response : ResponseModel
+    var results : RoomModel
+}
+
 struct RoomModel: Codable {
     var id: Int
     var roomName: String
@@ -29,3 +34,5 @@ struct RoomModel: Codable {
         case pricePerNight = "price_per_night"
     }
 }
+
+

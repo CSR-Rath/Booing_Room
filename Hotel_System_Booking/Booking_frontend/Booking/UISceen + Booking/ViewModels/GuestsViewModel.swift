@@ -12,36 +12,30 @@ class GuestsViewModel{
     private let endPoint =  Endpoints.guests
     static let shared = GuestsViewModel()
     
-    func getGuestsList(success: @escaping (_ response: GeustListResponse) -> Void){
+    func getGuestsList(success: @escaping (_ response: GeustListModel) -> Void){
         
         ApiManager.shared.apiConnection(url: endPoint)
-        { (res: GeustListResponse) in
+        { (res: GeustListModel) in
             success(res)
         }
     }
     
-    func deteleGeusts(id: Int, success: @escaping (_ response: ResponseModel) -> Void){
+    func geustDetail(id: Int, method: HTTPMethod, success: @escaping (_ response: ResponseGeustModel) -> Void){
         ApiManager.shared.apiConnection(url: endPoint+"/\(id)",
-                                        method: .DELETE)
-        {(res : ResponseModel) in
+                                        method: method)
+        {(res : ResponseGeustModel) in
             success(res)
         }
     }
     
     // MARK: - Post - Put (Geusts)
     func post_put_Guests(param: Encodable, method: HTTPMethod, id: Int = 0,
-                    success: @escaping (_ response: GeustPostResponse) -> Void){
-        
-//        var endpoint = endPoint
-        
-//        if id != 0{
-//            endpoint = endPoint+"/\(id)"
-//        }
+                    success: @escaping (_ response: ResponseGeustModel) -> Void){
         
         ApiManager.shared.apiConnection(url: endPoint,
                                         method: method,
                                         modelCodable: param)
-        { (res: GeustPostResponse) in
+        { (res: ResponseGeustModel) in
             
             success(res)
         }

@@ -47,13 +47,21 @@ class RoomViewModel {
         }
     }
     
+    func roomDetail(id: Int, method: HTTPMethod, success: @escaping (_ response: ResponseRoomModel) -> Void){
+        ApiManager.shared.apiConnection(url: endPoint+"/\(id)", method: method)
+        {(res : ResponseRoomModel) in
+            success(res)
+        }
+    }
+    
+    
     // MARK: - Post - Put (Geusts)
-    func post_put_Room(param: Encodable, method: HTTPMethod, id: Int = 0, success: @escaping (_ response: GeustPostResponse) -> Void){
+    func post_put_Room(param: Encodable, method: HTTPMethod, id: Int = 0, success: @escaping (_ response: ResponseGeustModel) -> Void){
         
         ApiManager.shared.apiConnection(url: endPoint,
                                         method: method,
                                         modelCodable: param)
-        { (res: GeustPostResponse) in
+        { (res: ResponseGeustModel) in
             
             success(res)
         }

@@ -9,12 +9,12 @@ import Foundation
 
 //MARK: - Using (enum CodingKeys: String, CodingKey) for suport file json from service
 
-struct GeustListResponse: Codable {
+struct GeustListModel: Codable {
     var response: ResponseModel
     var results: [GeustModel]
 }
 
-struct GeustPostResponse: Codable {
+struct ResponseGeustModel: Codable {
     var response: ResponseModel
     var results: GeustModel
 }

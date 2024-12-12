@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-5_g7fc@---n(gy3&y(ic4m80026-moypet4hscyxpz^wafi%^m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.0.110', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -37,8 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework_simplejwt',
     'myapp'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,26 +83,14 @@ WSGI_APPLICATION = 'hotel_system.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#MARK: connection with database
-# DATABASES = {
-#     'default': {
-#             'ENGINE': 'django.db.backends.postgresql',
-#             'NAME': 'midterm_hotel_system_db',  # Replace with your actual database name
-#             'USER': 'postgres',  # Replace with your actual database user
-#             'PASSWORD': '123',  # Replace with your actual password
-#             'HOST': 'localhost',  # or the IP address of your PostgreSQL server
-#             'PORT': '9999',  # Default PostgreSQL port
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'hotel_system',
-        'USER': 'postgres',
-        'PASSWORD': '123',
-        'HOST': 'localhost',  # Set to empty string for default
-        'PORT': '9999',           # Set to empty string for default
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'final_hotel_db',  # Replace with your actual database name
+            'USER': 'postgres',  # Replace with your actual database user
+            'PASSWORD': '123',  # Replace with your actual password
+            'HOST': 'localhost',  # or the IP address of your PostgreSQL server
+            'PORT': '9999',  # Default PostgreSQL port
     }
 }
 
@@ -130,12 +127,11 @@ USE_TZ = True
 
 APPEND_SLASH = False
 
-# formate select and then == >   code option + comment + l
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
