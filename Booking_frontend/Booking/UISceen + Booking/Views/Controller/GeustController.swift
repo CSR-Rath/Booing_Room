@@ -25,8 +25,7 @@ class GeustController: UIViewController {
     private let addressTextField = UITextField()
     private let submitButton =  MainButton()
     private let messageLabel = UILabel()
-    
-    
+
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         firstNameTextField.resignFirstResponder()
@@ -34,7 +33,6 @@ class GeustController: UIViewController {
         phoneTextField.resignFirstResponder()
         emailTextField.resignFirstResponder()
         addressTextField.resignFirstResponder()
-        
     }
     
     
