@@ -20,10 +20,10 @@ class GuestsViewModel{
         }
     }
     
-    func geustDetail(id: Int, method: HTTPMethod, success: @escaping (_ response: ResponseGeustModel) -> Void){
+    func geustDetail(id: Int, method: HTTPMethod, success: @escaping (_ response: GeustModel) -> Void){
         ApiManager.shared.apiConnection(url: endPoint+"/\(id)",
                                         method: method)
-        {(res : ResponseGeustModel) in
+        {(res : GeustModel) in
             success(res)
         }
     }

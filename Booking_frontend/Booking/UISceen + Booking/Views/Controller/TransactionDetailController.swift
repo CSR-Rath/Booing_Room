@@ -116,7 +116,7 @@ class TransactionDetailController: UIViewController {
 
                         let data = DetailModel(room: response.results,
                                                reservation: reservation,
-                                               geust: responseGeust.results)
+                                               geust: responseGeust)
                         
                         detailModel = data
                         
